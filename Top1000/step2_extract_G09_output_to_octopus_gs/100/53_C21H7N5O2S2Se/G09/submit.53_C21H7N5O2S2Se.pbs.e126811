@@ -1,6 +1,0 @@
-/var/spool/torque/mom_priv/jobs/126811.mgmt1.SC: line 2: g09: command not found
-
-real	0m0.017s
-user	0m0.000s
-sys	0m0.002s
-cp: cannot create directory `/scratch/shuo/100/result/53_C21H7N5O2S2Se/G09/': No such file or directory
