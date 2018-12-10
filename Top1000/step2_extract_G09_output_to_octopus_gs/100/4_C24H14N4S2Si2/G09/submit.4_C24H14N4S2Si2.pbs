@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -V
+#PBS -l nodes=1:ppn=12
+#PBS -q batch
+#PBS -j oe
+#PBS -l walltime=120:00:00
+
+#  export GAUSS_SCRDIR=/home/shuo/scratch
+
+GAUSS_SCRDIR=/scratch/shuo/g09
+module load gaussian/g09
+
+
+
+
+
+date
+time g09 < /scratch/shuo/100/ing/4_C24H14N4S2Si2/G09/4_C24H14N4S2Si2.gjf > /scratch/shuo/100/ing/4_C24H14N4S2Si2/G09/4_C24H14N4S2Si2.out
+date
+mv /scratch/shuo/100/ing/4_C24H14N4S2Si2 /scratch/shuo/100/result/ 

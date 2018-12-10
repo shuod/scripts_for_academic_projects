@@ -1,0 +1,99 @@
+#!/bin/bash
+
+
+# Top1000 moleculess'
+# Step 2/3
+
+# put into any folder, no parameter needed. Upon running, converts the G09 output in the base_dir folder's subfold's G09 folder into *.xyz. 
+# and *.xyz is put into a new subfolder "octopus_gs" in the same sub folder
+#
+# Author Shuo Dai
+# Verstion: 20140105
+
+# 1/3 submitted the G09 job for the files in the $some/ing/ folder and after finishing it, move the folder into $some/result/1_C60/G09 folder
+# 2/3 moved and submitted the gs job for the files in the $some/result/ (create octopus_gs folder) and after finishing it, move the folder into $some/octopus/1_C60/octopus_gs
+# 3/3 submitted the td job for the files in the folder $some/octopus (create 1_C60/octopus_td_x/y/z) and after finishing it, move the folder into $some/octopus_td
+# 3+/3 calculate absorption spectra for the files in the $some/octopus_td and after finishing it ,move the folder into $some/finish
+
+# CHANGE HERE !! 1/3
+base_dir='/scratch/shuo/100/result';
+
+# CHANGE HERE !! 2/3 (to accquire the filename) the string that should not in the xyz filename(the path part)
+char_to_cut='/scratch/shuo/100/result/'
+# char_to_cut="/${base_dir}/"
+
+
+# CHANGE HERE !! 3/3 tempelate files are stored in the same directory as this scripts (inp_gs_tempelate and submit.octopus.tempelate)
+current_dir=$PWD
+
+
+
+# 	search for file 
+# 	for folder in 'find $base_dir -type f'
+
+# 	search for folder
+# 	find the subfolder that contains G09 in order to set up a new octopus_gs folder.
+
+for folder in `find $base_dir -type d -print | grep "G09"`
+
+do
+
+
+
+#  Confirmation of the folder and set up folder for xyz file
+
+#  $folder=/scratch/shuo/1kb/result/1_C/G09
+	echo $folder
+
+#  $last_level=/scratch/shuo/1kb/result/1_C
+	last_level=${folder%%/G09*}
+	echo $last_level
+	mkdir $last_level/octopus_gs
+
+#  extract xyz filename   1_C
+	cd $folder
+	xyz_filename=${folder#*${char_to_cut}}
+	xyz_filename=${xyz_filename%%/G09*}
+	
+	echo $xyz_filename
+
+#  To skip those files that are unfinished and have error. (The last line of the output file of Gaussian09 is "Normal termination of the calculation".)
+#	sign=$(sed -n '$p' | $folder/${xyz_filename}.out | cut -c 2-7)
+
+	sign=$(tail -1 $folder/${xyz_filename}.out | cut -c 2-7)
+	if [ $sign != 'Normal' ]
+	then 
+		echo "$folder/${xyz_filename} skipped" >>$base_dir/log_$date
+	fi
+
+#  converting and put into new octopus_gs folder
+	babel -i g09 $xyz_filename.out -o xyz $last_level/octopus_gs/${xyz_filename}_G09opt.xyz
+	
+#  generate the gs input from the tempelate	
+	cp $current_dir/inp_gs_tempelate $last_level/octopus_gs/inp
+	echo "XYZCoordinates = '${xyz_filename}_G09opt.xyz'" >> $last_level/octopus_gs/inp
+
+#  generate the submission script for gs input
+
+#  the name of submission script
+script_name=submit_gs_${xyz_filename}
+result_name=${xyz_filename}_gs.log
+
+	cp $current_dir/submit.octopus.tempelate $last_level/octopus_gs/$script_name
+	echo "cd $last_level/octopus_gs/" >> $last_level/octopus_gs/$script_name
+	echo "time octopus < $last_level/octopus_gs/inp >  $last_level/octopus_gs/$result_name" >> $last_level/octopus_gs/$script_name
+	echo "date" >> $last_level/octopus_gs/$script_name
+
+# Moving folders upon finishing the calculation: delete the "/result" part from the $folder string
+     echo mkdir 
+     echo "cp -r $last_level/. ${base_dir%%/result*}/octopus/${xyz_filename}/ " >> $last_level/octopus_gs/$script_name;
+     echo "sleep 2" >> $last_level/octopus_gs/$script_name;
+     echo "rm -rf $last_level/" >> $last_level/octopus_gs/$script_name;
+
+
+#  submit the script
+echo "Submitting job - ${xyz_filename}_gs"  && qsub $last_level/octopus_gs/$script_name
+echo "Sleeping a few seconds before submitting next job..." && sleep 5
+
+
+done
