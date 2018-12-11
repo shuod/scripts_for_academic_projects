@@ -1,5 +1,5 @@
 # scripts_for_projects
-Scripts made for my projects.
+Codes(shell, python, matlab, labview, etc ) made for my projects.
 
 ## 1 Benchmarking functional
 
