@@ -1,0 +1,47 @@
+Units = eV_angstrom
+CalculationMode = gs
+Theorylevel = DFT
+
+Spacing = 0.20
+BoxShape = minimum
+# The radius can be set based on the recommendation in the pseudo potential  setting it at 5 overrides that
+# Radius = 5.00
+
+XYZCoordinates = '1_g09gsopt_20131126_SD.xyz'
+
+fromScratch = yes
+# ------------------
+# TD RUN Parameters
+# ------------------
+TDDeltaStrength = 0.01
+TDPolarizationDirection = 1
+
+# 1 fs = 1.519 time unit
+# 1 time unit = 0.658 fs
+
+# 30 fs
+
+# The time needed might not be as large. Especially if you are to use the compressed sensing
+stime = 45.57
+
+dt = 0.0025
+TDPropagator = aetrs
+TDExponentialMethod = taylor
+TDExponentialOrder = 4
+TDLanczosTol = 5.0e-5
+TDMaximumIter = stime/dt
+TDTimeStep = dt
+OutputEvery = 500
+
+# --------------------
+# Spectrum Parameters
+# --------------------
+
+# ExperimentalFeatures = yes
+# SpectrumMethod = compressed_sensing
+# SpectrumSignalNoise = 0.0001
+
+# Change this number, if we want smaller perturbation time 
+# PropagationSpectrumEndTime = 3.7975
+
+PropagationSpectrumMaxEnergy = 300

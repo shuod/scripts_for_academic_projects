@@ -1,0 +1,56 @@
+#!/bin/bash
+# JJS - created for Shuo - 2013-07-01
+# Shuo - Modified -2013-12-28
+
+# submitted the G09 job for the files in the $some/ing/ folder and after finishing it, move the folder into $some/result/1_C60/G09 folder
+# moved and submitted the gs job for the files in the $some/result/ (create octopus_gs folder) and after finishing it, move the folder into $some/octopus/1_C60/octopus_gs
+# submitted the td job for the files in the folder $some/octopus (create 1_C60/octopus_td_x/y/z) and after finishing it, move the folder into $some/octopus_td
+# calculate absorption spectra for the files in the $some/octopus_td and after finishing it ,move the folder into $some/finish
+
+# CHANGE HERE!!! the initial directory to put this script and the tempelate; and also where to put the input folders(Stoichiometric_named)
+base_dir='/scratch/shuo/200/ing';
+
+# CHANGE HERE !! 2/3 (to accquire the filename) the string that should not in the xyz filename(the path part)
+char_to_cut="/scratch/shuo/200/ing/"
+
+# CHANGE HERE !! 3/3 tempelate files are stored in the same directory as this scripts (inp_gs_tempelate and submit.octopus.tempelate)
+current_dir=$PWD
+
+
+
+# to list just folders and cut the last char, which is '/'
+cd $base_dir
+for folder in `ls -1d */ | sed 's/\///g'`
+do
+
+
+#  Confirmation of the folder 
+
+#  folder: 1_C
+	echo $folder
+
+#  we have entered the $base_dir before, so here is using relative path
+script_name=submit.$folder
+
+     cp $current_dir/submit.G09.template $base_dir/$folder/G09/$script_name;
+
+     cd $base_dir/$folder/G09
+
+     echo "date" >> $base_dir/$folder/G09/$script_name;
+     echo "time g09 < $base_dir/$folder/G09/$folder.gjf > $base_dir/$folder/G09/$folder.out" >> $base_dir/$folder/G09/$script_name;
+     echo "date" >> $base_dir/$folder/G09/$script_name;
+     echo "sleep 3" >> $base_dir/$folder/G09/$script_name;
+     echo "formchk $base_dir/$folder/G09/$folder.chk $base_dir/$folder/G09/$folder.fchk" >> $base_dir/$folder/G09/$script_name;
+
+     echo "sleep 2" >> $base_dir/$folder/G09/$script_name;
+
+# delete the "/ing" part from the $folder string
+     
+     echo "cp -r $base_dir/$folder/. ${base_dir%%/ing*}/result/$folder " >> $base_dir/$folder/G09/$script_name;
+     echo "sleep 5" >> $base_dir/$folder/G09/$script_name;
+#    echo "rm -rf $base_dir/$folder" >> $base_dir/$folder/G09/$script_name;
+
+     echo "Submitting job - $file"  && qsub $script_name;
+     echo "Sleeping a few seconds before submitting next job..." && sleep 5;
+
+done
