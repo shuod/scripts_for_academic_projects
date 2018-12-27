@@ -18,13 +18,10 @@ Results:
 
 **data extraction:**
 
-- <u>*extract_homolumo_singlefile.py*</u>: Extracting HOMO/LUMO calculation results from Gaussian09 output file;
-
-- <u>*extract_homolumo_folder_difflevels.py*</u>: Extracting HOMO/LUMO calculation results from the folder containing many Gaussian09 files;
-
-- <u>*extract_tdsinglet_gap_singlefile.py*</u>:  Extracting Bandgap calculation results from Gaussian09 output file;
-
-- <u>*extract_tdsinglet_gap_folder_difflevels.py*</u>: Extracting Bandgap calculation results from the folder containing many Gaussian09 files;
+- <u>*p1\_extract\_homolumo\_singlefile.py*</u>: Extracting HOMO/LUMO calculation results from Gaussian09 output file;
+- <u>*p1\_extract\_homolumo\_folder\_difflevels.py*</u>: Extracting HOMO/LUMO calculation results from the folder containing many Gaussian09 files;
+- <u>*p1\_extract\_tdsinglet\_gap\_singlefile.py*</u>:  Extracting Bandgap calculation results from Gaussian09 output file;
+- <u>*p1\_extract\_tdsinglet\_gap\_folder\_difflevels.py*</u>: Extracting Bandgap calculation results from the folder containing many Gaussian09 files;
 
 **data reading from files**
 
@@ -33,10 +30,10 @@ Results:
 **linear regress calculation from different python library**
 Also discussed in my blog essay: https://shuod.github.io/post/linear-regression-with-python-lib/
 
-- <u>*linear_regression_using_numpy_linalg2*</u>: Using numpy to do linear regression;
-- <u>*scipy_stats.py*</u>: Using scipy to do linear regression;
-- <u>*sklearn_linear.py*</u>: Using sklearn to do linear regression (a wrapper of linear regression in scipy);
-- <u>*Linear Regression.xls*</u>: Excel file template for linear regression calculation.
+- <u>*p1\_linear\_regression\_using\_numpy\_linalg2*</u>: Using numpy to do linear regression;
+- <u>*p1\_scipy\_stats.py*</u>: Using scipy to do linear regression;
+- <u>*p1\_sklearn\_linear.py*</u>: Using sklearn to do linear regression (a wrapper of linear regression in scipy);
+- <u>*p1\_Linear\ Regression.xls*</u>: Excel file template for linear regression calculation.
 
 ![Result from linear_regression_using_numpy_linalg2](linear_regression_using_numpy_linalg2.png)
 
