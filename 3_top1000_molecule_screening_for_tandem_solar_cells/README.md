@@ -1,13 +1,14 @@
 # Top1000_molecule_screening_for_tandem_solar_cells
-Goal: Explore the correlations between solar spectrum coverage and the built pattern of top-1000 molecules in the CEPDB database (Harvard Clean Energy Project Database); Apply the correlation found to discover molecules for the tandem solar cell.
+## Goals:
+
+**(Phase1):** Explore the correlations between solar spectrum coverage and the built pattern of top-1000 molecules in the CEPDB database (Harvard Clean Energy Project Database); Apply the correlation found to discover molecules for the tandem solar cell.
+
+**(Phase2):** Using deep learning package DEEPCHEM to discover more molecule built pattern or spectrum shift rules beyond empirical photochemistry rules.
 
 
-
-phase 1:
+## Phase1 Results
 
 Title: Computational assessment of organic photovoltaic candidate compounds
-
-Results:
 
 - Design a descriptor (Correlation ratio or CR) to describe the correlation between the solar spectrum and the molecule's absorption spectrum.
 - Use the CR to screen out molecules that have strong absorptions in four different ranges of the solar spectrum (UV, Vis I, Vis II and IR) for application of tandem solar cell.
