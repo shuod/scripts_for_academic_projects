@@ -43,6 +43,6 @@ Title: Designing novel organic photovoltaic molecules based on bio-inspired mela
 
 **plot figures**
 - *<u>heatmap\_of\_PCE.py</u>*: generate a heatmap of PCE values for all combinations of end groups.
-- *<u>place\_PCE\_on\_scharberM\_exa1</u>*: plot the contour map of Scharber's Model (Theoretical model of organic photovoltaic) and place our result molecules on the map.
+- *<u>place\_PCE\_on\_scharberM\_exa2\_xGap\_yLUMO.py</u>*: plot the contour map of Scharber's Model (Theoretical model of organic photovoltaic) and place our result molecules on the map.
 
-![mol_for_tandem_cells](place_PCE_on_scharberM_exa1.png)
+![mol_for_tandem_cells](place_PCE_on_scharberM_exa2.png)
