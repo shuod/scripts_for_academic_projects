@@ -43,20 +43,22 @@ Goal: Gradient boosted random trees and other machine learning methods were test
 
 **Results(cv=8):**
 
-1. Mean absolute error (MAE) when using random forest to predict bandgap:
-- Morgan fingerprint: MAE=0.4219 (number\_of\_trees=122)
+**1. Mean absolute error (MAE) when using random forest to predict bandgaps:**
+
+- Morgan fingerprint: MAE=0.4219 (number\_of\_trees=120)
 - Estate fingerprint: MAE=0.3959 (number\_of\_trees=60)
-- RDKit fingerprint: MAE=0.4268 (number\_of\_trees=164)
+- RDKit fingerprint: MAE=0.4268 (number\_of\_trees=50)
 
 **Compared to**
 Results from the chosen functional after benchmarking study in phase1 (HSE06) gives:
 - Before additional linear correction MAE=0.21
 - After additional linear correction MAE=0.15
 
-2. Mean absolute error (MAE) when using random forest to predict bandgap:
+**2. Mean absolute error (MAE) when using random forest to predict HOMOs:**
+
 - Morgan fingerprint: MAE=0.1519 (number\_of\_trees=60)
 - Estate fingerprint: MAE=0.1640 (number\_of\_trees)=91)
-- RDKit fingerprint: MAE=0.1467 (number\_of\_trees=216)
+- RDKit fingerprint: MAE=0.1491 (number\_of\_trees=210)
 
 **Compared to**
 Results from the chosen functional after benchmarking study in phase1 (HSE06) gives:
@@ -68,5 +70,7 @@ Results from the chosen functional after benchmarking study in phase1 (HSE06) gi
 **Script:**
 
 - <u>*p2\_RF\_on\_gap.py*</u>: Python script to use random forest to predict bandgap.
-
 - <u>*p2\_RF\_on\_HOMO.py*</u>: Python script to use random forest to predict HOMO.
+- <u>*p2\_MAE\_plot.py*</u>: Python script to plot grouped bar figure.
+![](Bandgap_MAE_comp.png)
+![](HOMO_MAE_comp.png)
