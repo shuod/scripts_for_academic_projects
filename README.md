@@ -2,7 +2,7 @@
 Codes(shell, python, matlab, labview, etc ) made for my projects.
 
 ## license
-The Codes in this folder adopt MIT license. For details, check website: https://opensource.org/licenses/MIT
+The codes in this folder adopt MIT license. For details, check website: https://opensource.org/licenses/MIT
 
 The documents in this folder adopt Creative Common 4.0 with : BY-NC-ND
 
