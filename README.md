@@ -12,7 +12,11 @@ Results:
 
 - HSE06 functional was selected due to the accuracy on both HOMO and Bandgap predictions;
 
-**phase2 Goals:** Gradient boosted random trees and other machine learning methods were tested against traditional DFT/TD-DFT methods;
+**phase2 Goals:** Random trees and other machine learning methods were tested against traditional DFT/TD-DFT methods;
+
+- HOMOs: RF and DFT have more or less similar MAEs (Mean average error);
+
+- Bandgaps: RF has a larger MAEs than TD-DFT;
 
 ## 2_bio-inspired_melanin_design_for_photovoltaic
 
@@ -47,3 +51,11 @@ Using deep learning package DEEPCHEM to discover more molecule built pattern or 
 
 ## 5 Helix melanin
 
+## license
+The Codes in this folder adopt MIT license. For details, check website: https://opensource.org/licenses/MIT
+
+The documents in this folder adopt Creative Common 4.0 with : BY-NC-ND
+
+`BY-NC-ND` – [Attribution-NonCommercial-NoDerivatives] 
+
+For details, check website: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
