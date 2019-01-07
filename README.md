@@ -1,6 +1,15 @@
 # scripts_for_projects
 Codes(shell, python, matlab, labview, etc ) made for my projects.
 
+## license
+The Codes in this folder adopt MIT license. For details, check website: https://opensource.org/licenses/MIT
+
+The documents in this folder adopt Creative Common 4.0 with : BY-NC-ND
+
+`BY-NC-ND` – [Attribution-NonCommercial-NoDerivatives] 
+
+For details, check website: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
 ## 1_benchmarking_DFT_functionals
 **phase1 Goals:** Report accuracy and performance of different functionals for Density Functional Theory calculation on molecular orbital energies: HOMO (Highest Occupied Molecular Orbitals), LUMO (Lowest Unoccupied Molecular Orbitals) and Bandgap.
 
@@ -51,11 +60,4 @@ Using deep learning package DEEPCHEM to discover more molecule built pattern or 
 
 ## 5 Helix melanin
 
-## license
-The Codes in this folder adopt MIT license. For details, check website: https://opensource.org/licenses/MIT
 
-The documents in this folder adopt Creative Common 4.0 with : BY-NC-ND
-
-`BY-NC-ND` – [Attribution-NonCommercial-NoDerivatives] 
-
-For details, check website: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
