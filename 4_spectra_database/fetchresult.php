@@ -8,10 +8,10 @@
 
 <?php
 $host ="localhost";
-$user ="root";
-$pass ="Top1000mol20190120";
-$databasename="spectra";
-$tablename="Top1000spectra";
+$user =" ";
+$pass =" ";
+$databasename=" ";
+$tablename=" ";
 $conn=mysql_connect($host,$user,$pass) or die ("<p> logging on has not succeeded.</p>");
 
 

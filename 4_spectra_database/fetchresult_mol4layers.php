@@ -7,11 +7,11 @@
 <body>
 
 <?php
-$host ="localhost";
-$user ="root";
-$pass ="Top1000mol20190120";
-$databasename="spectra";
-$tablename="Top1000spectra";
+$host =" ";
+$user =" ";
+$pass =" ";
+$databasename=" ";
+$tablename=" ";
 	
 $criteria_high = 0.5;
 $criteria_low = 0.35;
