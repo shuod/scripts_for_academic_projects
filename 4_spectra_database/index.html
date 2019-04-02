@@ -1,0 +1,167 @@
+<html>
+ 
+<head>
+ 
+<title>Moleclue spectra database</title>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link href="menu.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+@import url(style.css );
+</style>
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom" href="" />
+ 
+</head>
+ 
+<body class="l1 equal">
+
+
+<div id="container">
+	<div id="header">
+		<div class="content"><H1 >Molecular Absorption Spectra Database</H1><!-- header content -->
+		<div class="content"><H2 >created by Shuo Dai</H2>
+		</div>
+	</div>
+	<div id="primary">
+	<div class="content">
+
+
+
+
+<div align="left">
+  <h2>What we do: </h2>
+  <h2>1. Find spectra correlation ratio (CR) for your moleclues (in the CEPDB database) </h2>
+	Didn't know the SMILE code?
+	<form name="groovyform">
+	<input
+   	type="button"
+   	name="groovybtn1"
+   	class="groovybutton"
+   	value="Draw structure to get SMILE codes"
+   	title=""
+   	onclick="window.open('https://cactus.nci.nih.gov/translate/')">
+	</form>
+	<br />
+	
+	Then use the first button below.
+  <h2>2. Find molecules with complementary spectra for tandem solar cells.</h2>
+	Use the second button below
+  <h2>3. Find molecules with specific spectra features.</h2>
+	Use the third button below to write your own SQL command. To be added.<br />
+	"SELECT * FROM Top1000spectra where UV > 0.5 and VISI > 0.5 and VISII > 0.5 and IR > 0.5"
+
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<div id="menu">
+
+
+
+<ul>
+
+
+<li><a href="search_mol2spectra.php">I know the SMILE code and I want to know the spectra.<br /><span>1. Only know the structure? Get the SMILE here:<br />I want to know the spectra</span></a></li>
+<li><a href="search_mol4layers.php">I want to know the molelcues with complementary absorption in solar spectra<br /><span><br /></span></a></li>
+<li><a href="search_sqlcommand.php">I want to use custom SQL command (To be added)<br /><span><br /></span></a></li>
+	
+
+
+</ul>
+</div>
+
+<!-- primary content --></div>
+
+ </div>
+<div id="secondary">
+<div class="content">
+<font style=font:25pt color=ff0000>Parameters and terminology</font>
+
+<br />
+<style>
+ul,li{ list-style:none; float:left;}
+body{ font-size:12px; line-height:1.6; font-family:Verdana, "宋体", Arial; text-align:left;}
+#info li{ margin-left:4px; margin-top:15px;}
+#info a {display:block;text-align:left; padding-left:15px;
+padding-top:2px;padding-bottom:1px;background-image: 
+url(background.gif);
+background-repeat: no-repeat;color: #000; width:47px; cursor:hand; text-decoration: none;}
+#job a:link,#job a:visited{background-position: -62px 0px;}
+#eve a:link,#eve a:visited{background-position: -124px 0px;}
+#oth a:link,#oth a:visited{background-position: -186px 0px;}
+#car a:hover ,#car a:active {background-position: 0px -22px; color:#fff;}
+#job a:hover ,#car a:active {background-position: -62px -22px; color:#fff;}
+#eve a:hover ,#car a:active {background-position: -124px -22px; color:#fff;}
+#oth a:hover ,#car a:active {background-position: -186px -22px; color:#fff;}
+</style>
+<div id="info">
+ <ul>
+
+ 
+  <li id="mol2spectra" font-size=12><span>Range definition:</span></li>
+  <img src="./static/range_division.png" height="250"> </img>
+   
+   
+ </ul>
+</div>
+
+<div class="content">
+<font style=font:25pt color=ff0000>Using CR to find new materials:</font>
+<div id="info">
+ <ul>
+
+ 
+  <li id="mol2spectra" font-size=12><span>materials for sunglasses:</span></li>
+  <img src="./static/uv_screening.png" height="250"> </img>
+   
+   
+ </ul>
+</div>
+</div>
+				
+								
+</div>
+</div>
+
+
+<div id="tertiary">
+		<div class="content"><font style=font:25pt color=ff0000>Other Links</font><!-- tertiary content -->
+
+<form name="groovyform">
+<input
+   type="button"
+   name="groovybtn1"
+   class="groovybutton"
+   value="Borunda research group"
+   title=""
+   onclick="window.open('http://physics.okstate.edu/borunda')">
+</form>
+
+<form name="groovyform">
+<input
+   type="button"
+   name="groovybtn1"
+   class="groovybutton"
+   value="Draw structure to get SMILE code"
+   title=""
+   onclick="window.open('https://cactus.nci.nih.gov/translate/')">
+</form>
+
+
+</div>
+	</div>
+	<div id="footer">
+		<div class="content"> Page create by Shuo Dai. More calculation resutls are coming!<!-- footer content --></div>
+	</div>
+</div>
+</body>
+
+</html>
